@@ -5,14 +5,17 @@ import java.util.Scanner;
 public class Jogo {
 	
 	Scanner scanner = new Scanner(System.in);
-	private ArrayList<Jogador> arrayJogadores = new ArrayList<>();
-	private ArrayList<Carta> arrayDeck = new ArrayList<>();
+	public ArrayList<Jogador> arrayJogadores = new ArrayList<>();
+	public ArrayList<Carta> arrayDeck = new ArrayList<>();
+	public ArrayList<Carta> arrayVira = new ArrayList<>();
+	
+	
+	
 	
 	public void welcome() {
 		System.out.println("Olá! Qual é seu nome?");
 		String nome = scanner.next();
 		this.adicionarJogador(nome);
-		Jogador humano = arrayJogadores.get(0);
 		
 		System.out.println("Quantos adversários você quer enfrentar, " + nome + "?");
 		int qtdeAdversarios = scanner.nextInt();
@@ -38,6 +41,7 @@ public class Jogo {
 		montarDeck();
 		embaralhar();
 		distribuirCartas();
+		imprimirVira();
 		
 	}
 	
@@ -82,15 +86,19 @@ public class Jogo {
 	public void distribuirCartas() {
 		for(int i = 0; i < 7; i++) {
 			for(Jogador jogador: arrayJogadores) {
-				Carta cartaTopo = arrayDeck.get(0);
-				jogador.mao.add(cartaTopo);
+				jogador.mao.add(arrayDeck.get(0));
 				arrayDeck.remove(0);
 			}
 		}
+		arrayVira.add(arrayDeck.get(0));
 	}
 	
 	public void imprimirCartasHumano() {
 		System.out.println(arrayJogadores.get(0).mao);
+	}
+	
+	public void imprimirVira() {
+		System.out.println("[VIRA] " + arrayVira.get(0));
 	}
 	
 	public void inverterSentido() {

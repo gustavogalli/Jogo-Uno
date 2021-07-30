@@ -8,6 +8,5 @@ public class Main {
 		jogo.iniciarJogo();
 		jogo.imprimirCartasHumano();
 		
-		
 	}
 }
