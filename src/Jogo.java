@@ -8,8 +8,7 @@ public class Jogo {
 	public ArrayList<Jogador> arrayJogadores = new ArrayList<>();
 	public ArrayList<Carta> arrayDeck = new ArrayList<>();
 	public ArrayList<Carta> arrayVira = new ArrayList<>();
-	
-	
+
 	
 	
 	public void welcome() {
@@ -42,6 +41,7 @@ public class Jogo {
 		embaralhar();
 		distribuirCartas();
 		imprimirVira();
+		imprimirMao();
 		
 	}
 	
@@ -76,7 +76,6 @@ public class Jogo {
 				arrayDeck.add(new Carta(coringa, "preto"));
 			}
 		}
-		
 	}
 	
 	public void embaralhar() {
@@ -91,10 +90,14 @@ public class Jogo {
 			}
 		}
 		arrayVira.add(arrayDeck.get(0));
+		System.out.println("----- HORA DO JOGO -----");
 	}
 	
-	public void imprimirCartasHumano() {
-		System.out.println(arrayJogadores.get(0).mao);
+	public void imprimirMao() {
+		System.out.println("\n[SUA MÃO]\n");
+		for(int i = 0; i < arrayJogadores.get(0).mao.size(); i++) {
+			System.out.println("[" + i + "] " + arrayJogadores.get(0).mao.get(i));
+		}
 	}
 	
 	public void imprimirVira() {
