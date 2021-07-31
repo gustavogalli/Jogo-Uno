@@ -4,6 +4,7 @@ public class Jogador {
 	
 	private String nome;
 	ArrayList<Carta> mao = new ArrayList<>();
+	Jogo jogo;
 	
 	public Jogador(String nome) {
 		this.nome = nome;
@@ -15,7 +16,8 @@ public class Jogador {
 	
 	// Métodos
 	public void analisarVira() {
-		
+		System.out.println(jogo.arrayVira.get(0).getSimbolo());
+		System.out.println(jogo.arrayVira.get(0).getCor());
 	}
 	
 	public void analisarMaos() {
