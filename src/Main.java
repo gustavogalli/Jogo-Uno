@@ -4,9 +4,7 @@ public class Main {
 		Jogo jogo = new Jogo();
 		
 		jogo.welcome();
-		jogo.imprimeJogadores();
 		jogo.iniciarJogo();
-		jogo.imprimirCartasHumano();
 		
 	}
 }
